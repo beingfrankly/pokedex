@@ -1,11 +1,19 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
-import { filter, map, shareReplay, switchMap, take } from "rxjs/operators";
+import {
+  distinctUntilChanged,
+  filter,
+  map,
+  shareReplay,
+  switchMap,
+  take,
+} from "rxjs/operators";
 
 type PokemonSearch = {
   offset: number;
   limit: number;
+  name?: string;
 };
 
 @Injectable({
@@ -26,14 +34,15 @@ export class SearchService {
   pokemonSearch$ = this._pokemonSearch.asObservable().pipe(shareReplay(1));
 
   pokemons$ = this.pokemonSearch$.pipe(
+    distinctUntilChanged((prev, curr) => prev.name === curr.name),
     switchMap((pokemonSearch: PokemonSearch) => {
       return this.getAllPokemon(pokemonSearch);
     }),
   );
 
   private _getAllPokemonQuery = `
-query getAllPokemon($limit: Int!, $offset: Int) {
-  pokemon_v2_pokemon_aggregate(limit: $limit, offset: $offset) {
+query getAllPokemon($limit: Int!, $offset: Int, $name: String) {
+  pokemon_v2_pokemon_aggregate(limit: $limit, offset: $offset, where: {name: {_regex: $name}}) {
     nodes {
       name
       id
@@ -78,6 +87,18 @@ query getAllPokemon($limit: Int!, $offset: Int) {
     );
   }
 
+  searchOnName(pokemonName: Pick<PokemonSearch, "name">): void {
+    this.pokemonSearch$.pipe(take(1)).subscribe(
+      (pokemonSearch: PokemonSearch) => {
+        const newPokemonSearch = {
+          ...pokemonSearch,
+          name: pokemonName.name,
+        };
+        this._pokemonSearch.next(newPokemonSearch);
+      },
+    );
+  }
+
   private getAllPokemon(pokemonSearch: PokemonSearch): Observable<any> {
     return this.http.post<any>(this._URL, {
       query: this._getAllPokemonQuery,
@@ -86,6 +107,7 @@ query getAllPokemon($limit: Int!, $offset: Int) {
           ? pokemonSearch.offset
           : this._INITIAL_OFFSET,
         limit: this._LIMIT,
+        name: pokemonSearch?.name ?? "",
       },
     }).pipe(map((d) => d?.data?.pokemon_v2_pokemon_aggregate.nodes));
   }
