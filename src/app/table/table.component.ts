@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { SearchService } from "../search.service";
+import { SearchService, SortField } from "../search.service";
 
 @Component({
   selector: "app-table",
@@ -21,5 +21,10 @@ export class TableComponent {
 
   handleNext(): void {
     this.searchService.searchNext();
+  }
+
+  handleSorting(column: string): void {
+    const sortField: SortField = SortField[column.toString().toUpperCase() as keyof typeof SortField];
+    this.searchService.updateSorting(sortField);
   }
 }

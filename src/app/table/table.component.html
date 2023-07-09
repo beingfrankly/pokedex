@@ -1,8 +1,8 @@
 <ng-container *ngIf="pokemons$ | async as pokemons">
   <table>
     <thead>
-      <th>ID</th>
-      <th>Name</th>
+      <th (click)="handleSorting('id')">ID</th>
+      <th (click)="handleSorting('name')">Name</th>
     </thead>
     <tbody>
       <tr *ngFor="let pokemon of pokemons">
