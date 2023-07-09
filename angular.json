@@ -6,9 +6,13 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "zelda-compendium": {
+    "pokedex": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -16,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/zelda-compendium",
+            "outputPath": "dist/pokedex",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [

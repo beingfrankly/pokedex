@@ -1,0 +1,17 @@
+<ng-container *ngIf="pokemons$ | async as pokemons">
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pokemon of pokemons">
+        <td>{{ pokemon.id }}</td>
+        <td>{{ pokemon.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button (click)="handlePrevious()">Previous</button>
+  <button (click)="handleNext()">Next</button>
+</ng-container>
