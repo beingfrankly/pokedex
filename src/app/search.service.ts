@@ -2,7 +2,6 @@ import { Apollo } from "apollo-angular";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import {
-  distinctUntilChanged,
   filter,
   map,
   shareReplay,
@@ -51,21 +50,10 @@ export class SearchService {
     .pipe(shareReplay(1));
 
   pokemons$ = this.pokemonSearch$.pipe(
-    // distinctUntilChanged((prev, curr) => this.isSameSearch(prev, curr)),
     switchMap((pokemonSearch: PokemonSearch) => {
       return this.getAllPokemon(pokemonSearch);
     }),
   );
-
-  // isSameSearch(
-  //   previousSearch: PokemonSearch,
-  //   currentSearch: PokemonSearch,
-  // ): boolean {
-  //   return previousSearch.name === currentSearch.name &&
-  //     previousSearch.offset === currentSearch.offset &&
-  //     previousSearch.sortField === currentSearch.sortField &&
-  //     previousSearch.sortOrder === currentSearch.sortOrder;
-  // }
 
   constructor(private apollo: Apollo) {}
 
