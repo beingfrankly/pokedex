@@ -1,9 +1,12 @@
 <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
   <label for="input_name">Name</label>
-  <input
-    id="input_name"
-    type="text"
-    name="name"
-    formControlName="name"
-  />
+  <input id="input_name" type="text" name="name" formControlName="name" />
+
+  <label for="input_types">Pokemon types</label>
+  <select id="input_types" formControlName="type" (change)="onTypeChange()">
+    <option selected [ngValue]="0">All</option>
+    <option *ngFor="let pokemonType of pokemonTypes" [ngValue]="pokemonType.id">
+      {{ pokemonType.name }}
+    </option>
+  </select>
 </form>

@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { SearchService, SortField } from "../search.service";
+import { SearchService } from "../search.service";
 import { RouterModule } from "@angular/router";
+import { SortField } from "../types/sort-field";
 
 @Component({
   selector: "app-table",
@@ -11,10 +12,9 @@ import { RouterModule } from "@angular/router";
   styleUrls: ["./table.component.css"],
 })
 export class TableComponent {
-  constructor(private searchService: SearchService) {
-  }
-
   pokemons$ = this.searchService.pokemons$;
+
+  constructor(private searchService: SearchService) {}
 
   handlePrevious(): void {
     this.searchService.searchPrevious();

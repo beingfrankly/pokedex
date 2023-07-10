@@ -11,31 +11,20 @@ import {
 } from "rxjs/operators";
 import {
   Pokemon_V2_Pokemon,
+  Pokemon_V2_Pokemon_Bool_Exp,
+  Pokemon_V2_Type,
 } from "graphql/generated";
 import { GET_ALL_POKEMON } from "./queries/getAllPokemon";
 import { GET_POKEMON_BY_ID } from "./queries/getPokemonById";
+import { GET_POKEMON_TYPES } from "./queries/getPokemonTypes";
+import { PokemonType } from "./types/pokemon-type";
+import { PokemonSearch } from "./types/pokemon-search";
+import { SortField } from "./types/sort-field";
+import { SortOrder } from "./types/sort-order";
 
 export type Pokemon = {
   id: string;
   name: string;
-};
-
-export enum SortField {
-  ID = "id",
-  NAME = "name",
-}
-
-export enum SortOrder {
-  ASC = "asc",
-  DESC = "desc",
-}
-
-export type PokemonSearch = {
-  offset: number;
-  limit: number;
-  sortField: SortField;
-  sortOrder: SortOrder;
-  name?: string;
 };
 
 @Injectable({
@@ -55,24 +44,28 @@ export class SearchService {
     sortOrder: SortOrder.ASC,
   });
 
-  pokemonSearch$ = this._pokemonSearch.asObservable().pipe(shareReplay(1));
+  readonly pokemonSearch$ = this._pokemonSearch.asObservable().pipe(
+    shareReplay(1),
+  );
+  readonly pokemonTypes$: Observable<PokemonType[]> = this.getPokemonTypes()
+    .pipe(shareReplay(1));
 
   pokemons$ = this.pokemonSearch$.pipe(
-    distinctUntilChanged((prev, curr) => this.isSameSearch(prev, curr)),
+    // distinctUntilChanged((prev, curr) => this.isSameSearch(prev, curr)),
     switchMap((pokemonSearch: PokemonSearch) => {
       return this.getAllPokemon(pokemonSearch);
     }),
   );
 
-  isSameSearch(
-    previousSearch: PokemonSearch,
-    currentSearch: PokemonSearch,
-  ): boolean {
-    return previousSearch.name === currentSearch.name &&
-      previousSearch.offset === currentSearch.offset &&
-      previousSearch.sortField === currentSearch.sortField &&
-      previousSearch.sortOrder === currentSearch.sortOrder;
-  }
+  // isSameSearch(
+  //   previousSearch: PokemonSearch,
+  //   currentSearch: PokemonSearch,
+  // ): boolean {
+  //   return previousSearch.name === currentSearch.name &&
+  //     previousSearch.offset === currentSearch.offset &&
+  //     previousSearch.sortField === currentSearch.sortField &&
+  //     previousSearch.sortOrder === currentSearch.sortOrder;
+  // }
 
   constructor(private apollo: Apollo) {}
 
@@ -103,18 +96,6 @@ export class SearchService {
     );
   }
 
-  searchOnName(pokemonName: Pick<PokemonSearch, "name">): void {
-    this.pokemonSearch$.pipe(take(1)).subscribe(
-      (pokemonSearch: PokemonSearch) => {
-        const newPokemonSearch = {
-          ...pokemonSearch,
-          name: pokemonName.name,
-        };
-        this._pokemonSearch.next(newPokemonSearch);
-      },
-    );
-  }
-
   updateSorting(currentSortField: SortField): void {
     this.pokemonSearch$.pipe(take(1)).subscribe(
       (pokemonSearch: PokemonSearch) => {
@@ -129,6 +110,17 @@ export class SearchService {
           ),
         };
         this._pokemonSearch.next(newPokemonSearch);
+      },
+    );
+  }
+
+  updatePokemonSearch(newPokemonSearch: Partial<PokemonSearch>): void {
+    this.pokemonSearch$.pipe(take(1)).subscribe(
+      (pokemonSearch: PokemonSearch) => {
+        this._pokemonSearch.next({
+          ...pokemonSearch,
+          ...newPokemonSearch,
+        });
       },
     );
   }
@@ -150,14 +142,53 @@ export class SearchService {
     }
   }
 
+  private getPokemonTypes(): Observable<PokemonType[]> {
+    return this.apollo.query<any>({
+      query: GET_POKEMON_TYPES,
+    }).pipe(map((value) => {
+      const pokemonTypes: Pokemon_V2_Type[] = value?.data?.pokemon_v2_type;
+      return pokemonTypes.map((pokemonType) => ({
+        id: pokemonType.id,
+        name: pokemonType.name,
+      }));
+    }));
+  }
+
   private getAllPokemon(
     pokemonSearch: PokemonSearch,
   ): Observable<Pokemon_V2_Pokemon[]> {
+    const pokemonName: Pokemon_V2_Pokemon_Bool_Exp = {
+      "name": {
+        "_regex": pokemonSearch?.name ?? "",
+      },
+    };
+
+    const pokemonTypeValue: number | undefined =
+      (pokemonSearch?.type && pokemonSearch?.type !== 0)
+        ? pokemonSearch?.type
+        : undefined;
+
+    const pokemonType: Pokemon_V2_Pokemon_Bool_Exp = {
+      "pokemon_v2_pokemontypes": {
+        "pokemon_v2_type": {
+          "id": {
+            "_eq": pokemonTypeValue,
+          },
+        },
+      },
+    };
+
+    const where: Pokemon_V2_Pokemon_Bool_Exp = {
+      ...pokemonName,
+      ...pokemonType,
+    };
+
     return this.apollo.query<any>({
       query: GET_ALL_POKEMON,
       variables: {
         limit: this._LIMIT,
-        name: pokemonSearch?.name ?? "",
+        where: where,
+        offset: pokemonSearch.offset,
         order_by: [{
           [pokemonSearch.sortField]: pokemonSearch.sortOrder,
         }],

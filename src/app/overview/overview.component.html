@@ -1,2 +1,4 @@
-<app-search />
+<ng-container *ngIf="pokemonTypes$ | async as pokemonTypes">
+  <app-search [pokemonTypes]="pokemonTypes" (typeChange)="handleTypeChange($event)" />
+</ng-container>
 <app-table />
