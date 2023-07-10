@@ -3,11 +3,12 @@ import { CommonModule } from "@angular/common";
 import { SearchService } from "../search.service";
 import { Observable } from "rxjs";
 import { RouterModule } from "@angular/router";
+import { PokemonImageComponent } from "../pokemon-image/pokemon-image.component";
 
 @Component({
   selector: "app-pokemon-detail",
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, PokemonImageComponent],
   templateUrl: "./pokemon-detail.component.html",
   styleUrls: ["./pokemon-detail.component.css"],
 })

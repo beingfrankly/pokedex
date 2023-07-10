@@ -1,7 +1,9 @@
 <a [routerLink]="['/']">Back to Pokedex</a>
 
-<h1>#{{ id }}</h1>
-
+<ng-container *ngIf="pokemon$ | async as pokemon"> 
+<h1>{{ pokemon.name }}</h1>
+  <app-pokemon-image [pokemonId]="pokemon.id" imageHeight="256px" imageWidth="256px" />
+</ng-container>
 
 {{ pokemon$ | async | json}}
 

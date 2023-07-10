@@ -3,11 +3,12 @@ import { CommonModule } from "@angular/common";
 import { SearchService } from "../search.service";
 import { RouterModule } from "@angular/router";
 import { SortField } from "../types/sort-field";
+import { PokemonImageComponent } from "../pokemon-image/pokemon-image.component";
 
 @Component({
   selector: "app-table",
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, PokemonImageComponent],
   templateUrl: "./table.component.html",
   styleUrls: ["./table.component.css"],
 })
