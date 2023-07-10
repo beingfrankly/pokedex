@@ -62,7 +62,7 @@ export class SearchService {
     return previousSearch.name === currentSearch.name &&
       previousSearch.offset === currentSearch.offset &&
       previousSearch.sortField === currentSearch.sortField &&
-      previousSearch.sortOrder === currentSearch.sortOrder
+      previousSearch.sortOrder === currentSearch.sortOrder;
   }
 
   private _getAllPokemonQuery(
@@ -86,6 +86,38 @@ query getAllPokemon($limit: Int!, $offset: Int, $name: String) {
     }
   }
 }`;
+  }
+
+  private _getPokemonByIdQuery(pokemonId: number): string {
+    return `
+query GetSinglePokemon {
+  pokemon_v2_pokemon_aggregate(where: {id: {_eq: ${pokemonId}}}) {
+    nodes {
+      name
+      id
+      height
+      base_experience
+      pokemon_v2_pokemontypes {
+        pokemon_v2_type {
+          name
+          id
+          pokemon_v2_moves(where: {generation_id: {_eq: 1}}) {
+            name
+            power
+            generation_id
+          }
+        }
+      }
+      pokemon_v2_pokemonstats {
+        pokemon_v2_stat {
+          name
+        }
+        base_stat
+      }
+    }
+  }
+}
+`;
   }
 
   constructor(private http: HttpClient) {}
@@ -175,5 +207,12 @@ query getAllPokemon($limit: Int!, $offset: Int, $name: String) {
         name: name ?? "",
       },
     }).pipe(map((d) => d?.data?.pokemon_v2_pokemon_aggregate.nodes));
+  }
+
+  getPokemonById(pokemonId: number): Observable<any> {
+    console.log({ pokemonId });
+    return this.http.post<any>(this._URL, {
+      query: this._getPokemonByIdQuery(pokemonId),
+    });
   }
 }
