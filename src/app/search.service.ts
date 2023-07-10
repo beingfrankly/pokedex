@@ -1,5 +1,5 @@
+import { Apollo } from "apollo-angular";
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 import {
   distinctUntilChanged,
@@ -9,6 +9,16 @@ import {
   switchMap,
   take,
 } from "rxjs/operators";
+import {
+  Pokemon_V2_Pokemon,
+} from "graphql/generated";
+import { GET_ALL_POKEMON } from "./queries/getAllPokemon";
+import { GET_POKEMON_BY_ID } from "./queries/getPokemonById";
+
+export type Pokemon = {
+  id: string;
+  name: string;
+};
 
 export enum SortField {
   ID = "id",
@@ -32,7 +42,6 @@ export type PokemonSearch = {
   providedIn: "root",
 })
 export class SearchService {
-  private _URL = "https://beta.pokeapi.co/graphql/v1beta";
   private _LIMIT = 20;
   private _INITIAL_OFFSET = 0;
   private _OFFSET_STEP = 20;
@@ -65,62 +74,7 @@ export class SearchService {
       previousSearch.sortOrder === currentSearch.sortOrder;
   }
 
-  private _getAllPokemonQuery(
-    sortField: SortField,
-    sortOrder: SortOrder,
-  ): string {
-    return `
-query getAllPokemon($limit: Int!, $offset: Int, $name: String) {
-  pokemon_v2_pokemon_aggregate(limit: $limit, offset: $offset, where: {name: {_regex: $name}}, order_by: { ${sortField}: ${sortOrder} }) {
-    nodes {
-      name
-      id
-      pokemon_species_id
-      pokemon_v2_pokemontypes {
-        pokemon_v2_type {
-          name
-          id
-        }
-        id
-      }
-    }
-  }
-}`;
-  }
-
-  private _getPokemonByIdQuery(pokemonId: number): string {
-    return `
-query GetSinglePokemon {
-  pokemon_v2_pokemon_aggregate(where: {id: {_eq: ${pokemonId}}}) {
-    nodes {
-      name
-      id
-      height
-      base_experience
-      pokemon_v2_pokemontypes {
-        pokemon_v2_type {
-          name
-          id
-          pokemon_v2_moves(where: {generation_id: {_eq: 1}}) {
-            name
-            power
-            generation_id
-          }
-        }
-      }
-      pokemon_v2_pokemonstats {
-        pokemon_v2_stat {
-          name
-        }
-        base_stat
-      }
-    }
-  }
-}
-`;
-  }
-
-  constructor(private http: HttpClient) {}
+  constructor(private apollo: Apollo) {}
 
   searchPrevious(): void {
     this.pokemonSearch$.pipe(
@@ -196,23 +150,36 @@ query GetSinglePokemon {
     }
   }
 
-  private getAllPokemon(pokemonSearch: PokemonSearch): Observable<any> {
-    const { sortField, sortOrder, offset, name } = pokemonSearch;
-
-    return this.http.post<any>(this._URL, {
-      query: this._getAllPokemonQuery(sortField, sortOrder),
+  private getAllPokemon(
+    pokemonSearch: PokemonSearch,
+  ): Observable<Pokemon_V2_Pokemon[]> {
+    return this.apollo.query<any>({
+      query: GET_ALL_POKEMON,
       variables: {
-        offset: offset ? offset : this._INITIAL_OFFSET,
         limit: this._LIMIT,
-        name: name ?? "",
+        name: pokemonSearch?.name ?? "",
+        order_by: [{
+          [pokemonSearch.sortField]: pokemonSearch.sortOrder,
+        }],
       },
-    }).pipe(map((d) => d?.data?.pokemon_v2_pokemon_aggregate.nodes));
+    }).pipe(
+      map((value) => value?.data?.pokemon_v2_pokemon_aggregate?.nodes),
+    );
   }
 
   getPokemonById(pokemonId: number): Observable<any> {
-    console.log({ pokemonId });
-    return this.http.post<any>(this._URL, {
-      query: this._getPokemonByIdQuery(pokemonId),
-    });
+    return this.apollo.query<any>({
+      query: GET_POKEMON_BY_ID,
+      variables: {
+        id: pokemonId,
+      },
+    }).pipe(
+      map((value) => {
+        const pokemon: Pokemon_V2_Pokemon = value?.data
+          ?.pokemon_v2_pokemon_aggregate?.nodes[0];
+
+        return pokemon;
+      }),
+    );
   }
 }
