@@ -1,12 +1,37 @@
-<a [routerLink]="['/']">Back to Pokedex</a>
+<a [routerLink]="['/']">Back</a>
 
-<ng-container *ngIf="pokemon$ | async as pokemon"> 
-<h1>{{ pokemon.name }}</h1>
-  <app-pokemon-image [pokemonId]="pokemon.id" imageHeight="256px" imageWidth="256px" />
+<ng-container *ngIf="pokemon$ | async as pokemon">
+  <h1>{{ pokemon.name }}</h1>
+  <p>#{{ pokemon.id }}</p>
+  <app-pokemon-image
+    [pokemonId]="pokemon.id"
+    imageHeight="256px"
+    imageWidth="256px"
+  />
+
+  <h2>Types</h2>
+  <div *ngFor="let type of pokemon.types">
+    <app-pokemon-type-icon [pokemonType]="type.name" />
+  </div>
+
+  <h2>Stats</h2>
+  <dl>
+    <div *ngFor="let stat of pokemon.stats">
+      <dt>{{ stat.name }}</dt>
+      <dd>{{ stat.baseStat }}</dd>
+    </div>
+  </dl>
+
+  <h2>Evolutions</h2>
+  <div
+    class="evolutions-container"
+    *ngFor="let evolution of pokemon.evolutions"
+  >
+    <app-pokemon-image
+      [routerLink]="['/', evolution.id]"
+      [pokemonId]="evolution.id"
+      imageHeight="128px"
+      imageWidth="128px"
+    />
+  </div>
 </ng-container>
-
-{{ pokemon$ | async | json}}
-
-
-
-

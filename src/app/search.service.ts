@@ -1,13 +1,7 @@
 import { Apollo } from "apollo-angular";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
-import {
-  filter,
-  map,
-  shareReplay,
-  switchMap,
-  take,
-} from "rxjs/operators";
+import { filter, map, shareReplay, switchMap, take } from "rxjs/operators";
 import {
   Pokemon_V2_Pokemon,
   Pokemon_V2_Pokemon_Bool_Exp,
@@ -20,11 +14,10 @@ import { PokemonType } from "./types/pokemon-type";
 import { PokemonSearch } from "./types/pokemon-search";
 import { SortField } from "./types/sort-field";
 import { SortOrder } from "./types/sort-order";
-
-export type Pokemon = {
-  id: string;
-  name: string;
-};
+import { PokemonAbility } from "./types/pokemon-ability";
+import { PokemonEvolution } from "./types/pokemon-evolution";
+import { PokemonStat } from "./types/pokemon-stat";
+import { Pokemon } from "./types/pokemon";
 
 @Injectable({
   providedIn: "root",
@@ -195,9 +188,43 @@ export class SearchService {
     }).pipe(
       map((value) => {
         const pokemon: Pokemon_V2_Pokemon = value?.data
-          ?.pokemon_v2_pokemon_aggregate?.nodes[0];
+          ?.pokemon_v2_pokemon[0];
 
-        return pokemon;
+        const pokemon2: Pokemon = {
+          id: pokemon.id,
+          name: pokemon.name,
+          evolutions: pokemon.pokemon_v2_pokemonspecy?.pokemon_v2_evolutionchain
+            ?.pokemon_v2_pokemonspecies.map(
+              (ps) => ({
+                id: ps.id,
+                name: ps.name,
+                order: ps?.order ?? 0,
+              } as PokemonEvolution),
+            ).sort((a, b) => a.order - b.order),
+          types: pokemon.pokemon_v2_pokemontypes.map(
+            (pt) => ({
+              id: pt.pokemon_v2_type?.id,
+              name: pt.pokemon_v2_type?.name,
+            } as PokemonType),
+          ),
+          stats: pokemon.pokemon_v2_pokemonstats.map(
+            (stat) => ({
+              name: stat.pokemon_v2_stat?.name,
+              baseStat: stat.base_stat,
+            } as PokemonStat),
+          ),
+          abilities: pokemon.pokemon_v2_pokemonabilities.map(
+            (ability) => ({
+              id: ability.id,
+              name: ability.pokemon_v2_ability?.name,
+              description:
+                ability.pokemon_v2_ability?.pokemon_v2_abilityflavortexts[0]
+                  .flavor_text,
+            } as PokemonAbility),
+          ),
+        };
+
+        return pokemon2;
       }),
     );
   }

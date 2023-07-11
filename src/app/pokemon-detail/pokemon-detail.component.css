@@ -1,0 +1,12 @@
+.evolutions-container {
+  display: inline-flex;
+}
+
+.evolutions-container > app-pokemon-image {
+  cursor: pointer;
+}
+
+
+app-pokemon-image .disabled {
+  filter: grayscale(100%);
+}
