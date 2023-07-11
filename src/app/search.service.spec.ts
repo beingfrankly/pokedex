@@ -1,16 +1,9 @@
-import { TestBed } from '@angular/core/testing';
-
+import { createServiceFactory, SpectatorService } from '@ngneat/spectator/jest';
 import { SearchService } from './search.service';
 
 describe('SearchService', () => {
-  let service: SearchService;
+  let spectator: SpectatorService<SearchService>;
+  const createService = createServiceFactory(SearchService);
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(SearchService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+  beforeEach(() => (spectator = createService()));
 });
