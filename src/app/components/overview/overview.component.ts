@@ -12,7 +12,7 @@ import { SearchService } from '../../search.service';
   styleUrls: ['./overview.component.css'],
 })
 export class OverviewComponent {
-  pokemonTypes$ = this.searchService.pokemonTypes$;
+  pokemonTypes$ = this.searchService.getPokemonTypes();
 
   constructor(private searchService: SearchService) {}
 
