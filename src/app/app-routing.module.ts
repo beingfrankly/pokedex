@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { pokemonResolver } from './resolvers/pokemon-resolver';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
   },
   {
     path: ':id',
+    resolve: {pokemon: pokemonResolver},
     loadComponent: () =>
       import('./components/pokemon-detail/pokemon-detail.component').then(
         (m) => m.PokemonDetailComponent

@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { filter, map, shareReplay, switchMap, take } from 'rxjs/operators';
 import {
-  Pokemon_V2_Pokemon,
   Pokemon_V2_Pokemon_Bool_Exp,
   Pokemon_V2_Type,
+  Query_Root,
 } from 'graphql/generated';
 import { GET_ALL_POKEMON } from './queries/getAllPokemon';
 import { GET_POKEMON_BY_ID } from './queries/getPokemonById';
@@ -14,10 +14,10 @@ import { PokemonType } from './types/pokemon-type';
 import { PokemonSearch } from './types/pokemon-search';
 import { SortField } from './types/sort-field';
 import { SortOrder } from './types/sort-order';
-import { PokemonAbility } from './types/pokemon-ability';
-import { PokemonEvolution } from './types/pokemon-evolution';
-import { PokemonStat } from './types/pokemon-stat';
-import { Pokemon } from './types/pokemon';
+import { Pokemon, PokemonBase } from './types/pokemon';
+import { getSortOrder } from './utils/sort-order';
+import { mapToPokemon } from './mappers/pokemon.mapper';
+import { mapToPokemonBase } from './mappers/pokemon-base.mapper';
 
 @Injectable({
   providedIn: 'root',
@@ -39,10 +39,10 @@ export class SearchService {
 
   pokemonSearch$ = this._pokemonSearch.asObservable().pipe(shareReplay(1));
 
-  pokemons$ = this.pokemonSearch$.pipe(
+  pokemons$: Observable<PokemonBase[]> = this.pokemonSearch$.pipe(
     switchMap((pokemonSearch: PokemonSearch) => {
       return this.getAllPokemon(pokemonSearch);
-    })
+    }),
   );
 
   constructor(private apollo: Apollo) {}
@@ -53,8 +53,8 @@ export class SearchService {
         take(1),
         filter(
           (pokemonSearch: PokemonSearch) =>
-            pokemonSearch.offset >= this._OFFSET_STEP
-        )
+            pokemonSearch.offset >= this._OFFSET_STEP,
+        ),
       )
       .subscribe((pokemonSearch: PokemonSearch) => {
         const newPokemonSearch = {
@@ -85,10 +85,10 @@ export class SearchService {
           ...pokemonSearch,
           offset: 0,
           sortField: currentSortField,
-          sortOrder: this.getNextSortOrder(
+          sortOrder: getSortOrder(
             pokemonSearch.sortField,
             currentSortField,
-            pokemonSearch.sortOrder
+            pokemonSearch.sortOrder,
           ),
         };
         this._pokemonSearch.next(newPokemonSearch);
@@ -106,26 +106,9 @@ export class SearchService {
       });
   }
 
-  getNextSortOrder(
-    previousSortField: SortField,
-    currentSortField: SortField,
-    previousSortOrder: SortOrder
-  ): SortOrder {
-    if (previousSortField !== currentSortField) {
-      return SortOrder.ASC;
-    } else if (
-      previousSortField === currentSortField &&
-      previousSortOrder === SortOrder.DESC
-    ) {
-      return SortOrder.ASC;
-    } else {
-      return SortOrder.DESC;
-    }
-  }
-
   getPokemonTypes(): Observable<PokemonType[]> {
     return this.apollo
-      .query<any>({
+      .query<Query_Root>({
         query: GET_POKEMON_TYPES,
       })
       .pipe(
@@ -135,15 +118,15 @@ export class SearchService {
             id: pokemonType.id,
             name: pokemonType.name,
           }));
-        })
+        }),
       );
   }
 
   private getAllPokemon(
-    pokemonSearch: PokemonSearch
-  ): Observable<Pokemon_V2_Pokemon[]> {
+    pokemonSearch: PokemonSearch,
+  ): Observable<PokemonBase[]> {
     return this.apollo
-      .query<any>({
+      .query<Query_Root>({
         query: GET_ALL_POKEMON,
         variables: {
           limit: this._LIMIT,
@@ -156,7 +139,12 @@ export class SearchService {
           ],
         },
       })
-      .pipe(map((value) => value?.data?.pokemon_v2_pokemon_aggregate?.nodes));
+      .pipe(
+        map(
+          (value) =>
+            value?.data?.pokemon_v2_pokemon.map((pk) => mapToPokemonBase(pk)),
+        ),
+      );
   }
 
   getWhereBy(pokemonSearch: PokemonSearch) {
@@ -189,70 +177,16 @@ export class SearchService {
 
   getPokemonById(pokemonId: number): Observable<Pokemon> {
     return this.apollo
-      .query<any>({
+      .query<Query_Root>({
         query: GET_POKEMON_BY_ID,
         variables: {
           id: pokemonId,
         },
       })
       .pipe(
-        map(({ data }) => {
-          return this.mapToPokemon(
-            data?.pokemon_v2_pokemon[0] as Pokemon_V2_Pokemon
-          );
-        })
+        map((value) => {
+          return mapToPokemon(value.data.pokemon_v2_pokemon[0]);
+        }),
       );
-  }
-
-  mapToPokemon(pokemonResponse: Pokemon_V2_Pokemon) {
-    const evolutions =
-      pokemonResponse.pokemon_v2_pokemonspecy?.pokemon_v2_evolutionchain?.pokemon_v2_pokemonspecies
-        .map(
-          (species) =>
-            ({
-              id: species.id,
-              name: species.name,
-              order: species?.order ?? 0,
-            } as PokemonEvolution)
-        )
-        .sort((a, b) => a.order - b.order);
-
-    const types = pokemonResponse.pokemon_v2_pokemontypes.map(
-      (type) =>
-        ({
-          id: type.pokemon_v2_type?.id,
-          name: type.pokemon_v2_type?.name,
-        } as PokemonType)
-    );
-
-    const stats = pokemonResponse.pokemon_v2_pokemonstats.map(
-      (stat) =>
-        ({
-          name: stat.pokemon_v2_stat?.name,
-          baseStat: stat.base_stat,
-        } as PokemonStat)
-    );
-
-    const abilities = pokemonResponse.pokemon_v2_pokemonabilities.map(
-      (ability) =>
-        ({
-          id: ability.id,
-          name: ability.pokemon_v2_ability?.name,
-          description:
-            ability.pokemon_v2_ability?.pokemon_v2_abilityflavortexts[0]
-              ?.flavor_text,
-        } as PokemonAbility)
-    );
-
-    const pokemon: Pokemon = {
-      id: pokemonResponse.id,
-      name: pokemonResponse.name,
-      evolutions,
-      types,
-      stats,
-      abilities,
-    };
-
-    return pokemon;
   }
 }

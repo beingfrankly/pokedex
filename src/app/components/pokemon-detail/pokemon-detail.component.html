@@ -1,6 +1,5 @@
 <a [routerLink]="['/']">Back</a>
-
-<ng-container *ngIf="pokemon$ | async as pokemon">
+<ng-container *ngIf="pokemon">
   <h1>{{ pokemon.name }}</h1>
   <p>#{{ pokemon.id }}</p>
   <app-pokemon-image

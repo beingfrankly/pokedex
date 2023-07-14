@@ -3,11 +3,18 @@ import { PokemonEvolution } from "./pokemon-evolution";
 import { PokemonStat } from "./pokemon-stat";
 import { PokemonType } from "./pokemon-type";
 
-export type Pokemon = {
+
+export type PokemonBase = {
   id: number;
   name: string;
-  evolutions: PokemonEvolution[] | undefined;
+  height: number;
+  baseExperience: number;
   stats: PokemonStat[];
   types: PokemonType[];
+}
+
+export type Pokemon = PokemonBase & {
+  evolutions: PokemonEvolution[] | undefined;
   abilities: PokemonAbility[];
 }
+
