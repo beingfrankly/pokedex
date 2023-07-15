@@ -1,4 +1,13 @@
 <ng-container *ngIf="pokemonTypes$ | async as pokemonTypes">
-  <app-search [pokemonTypes]="pokemonTypes" (typeChange)="handleTypeChange($event)" />
+  <app-search
+    [pokemonTypes]="pokemonTypes"
+    (typeChange)="setType($event)"
+    (nameChange)="setName($event)"
+  />
 </ng-container>
-<app-table />
+<app-table
+  [pokemons]="pokemons$ | async"
+  (handleSort)="setSorting($event)"
+  (handlePrevious)="setPreviousOffset()"
+  (handleNext)="setNextOffset()"
+/>

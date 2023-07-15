@@ -1,4 +1,3 @@
-svg {
-  height: 16px;
-  width: 16px;
+th.sortable {
+  cursor: pointer;
 }

@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SearchService } from '../../search.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { PokemonType } from '../../types/pokemon-type';
 
@@ -23,15 +22,16 @@ export class SearchComponent {
   @Output()
   typeChange: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(private searchService: SearchService) {}
+  @Output()
+  nameChange: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor() {}
 
   onTypeChange() {
     this.typeChange.emit(this.searchForm.get('type')?.value);
   }
 
   onSubmit() {
-    this.searchService.updatePokemonSearch({
-      name: this.searchForm.get('name')?.value ?? '',
-    });
+    this.nameChange.emit(this.searchForm.get('name')?.value ?? '');
   }
 }

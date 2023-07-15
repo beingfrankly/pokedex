@@ -18,3 +18,4 @@ export type Pokemon = PokemonBase & {
   abilities: PokemonAbility[];
 }
 
+export type SortablePokemonProps = Pick<PokemonBase, "id" | "name" | "height">;

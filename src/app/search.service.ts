@@ -1,7 +1,7 @@
 import { Apollo } from 'apollo-angular';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { filter, map, shareReplay, switchMap, take } from 'rxjs/operators';
+import { Observable, ReplaySubject } from 'rxjs';
+import { map, shareReplay, switchMap } from 'rxjs/operators';
 import {
   Pokemon_V2_Pokemon_Bool_Exp,
   Pokemon_V2_Type,
@@ -12,10 +12,7 @@ import { GET_POKEMON_BY_ID } from './queries/getPokemonById';
 import { GET_POKEMON_TYPES } from './queries/getPokemonTypes';
 import { PokemonType } from './types/pokemon-type';
 import { PokemonSearch } from './types/pokemon-search';
-import { SortField } from './types/sort-field';
-import { SortOrder } from './types/sort-order';
 import { Pokemon, PokemonBase } from './types/pokemon';
-import { getSortOrder } from './utils/sort-order';
 import { mapToPokemon } from './mappers/pokemon.mapper';
 import { mapToPokemonBase } from './mappers/pokemon-base.mapper';
 
@@ -23,19 +20,8 @@ import { mapToPokemonBase } from './mappers/pokemon-base.mapper';
   providedIn: 'root',
 })
 export class SearchService {
-  private _LIMIT = 20;
-  private _INITIAL_OFFSET = 0;
-  private _OFFSET_STEP = 20;
-  private _INITIAL_POKEMON_SEARCH: PokemonSearch = {
-    offset: this._INITIAL_OFFSET,
-    limit: this._LIMIT,
-    sortField: SortField.ID,
-    sortOrder: SortOrder.ASC,
-    name: '',
-  };
-
-  private _pokemonSearch: BehaviorSubject<PokemonSearch> =
-    new BehaviorSubject<PokemonSearch>(this._INITIAL_POKEMON_SEARCH);
+  private _pokemonSearch: ReplaySubject<PokemonSearch> =
+    new ReplaySubject<PokemonSearch>(1);
 
   pokemonSearch$ = this._pokemonSearch.asObservable().pipe(shareReplay(1));
 
@@ -47,63 +33,8 @@ export class SearchService {
 
   constructor(private apollo: Apollo) {}
 
-  searchPrevious(): void {
-    this.pokemonSearch$
-      .pipe(
-        take(1),
-        filter(
-          (pokemonSearch: PokemonSearch) =>
-            pokemonSearch.offset >= this._OFFSET_STEP,
-        ),
-      )
-      .subscribe((pokemonSearch: PokemonSearch) => {
-        const newPokemonSearch = {
-          ...pokemonSearch,
-          offset: pokemonSearch.offset - this._OFFSET_STEP,
-        };
-        this._pokemonSearch.next(newPokemonSearch);
-      });
-  }
-
-  searchNext(): void {
-    this.pokemonSearch$
-      .pipe(take(1))
-      .subscribe((pokemonSearch: PokemonSearch) => {
-        const newPokemonSearch = {
-          ...pokemonSearch,
-          offset: pokemonSearch.offset + this._OFFSET_STEP,
-        };
-        this._pokemonSearch.next(newPokemonSearch);
-      });
-  }
-
-  updateSorting(currentSortField: SortField): void {
-    this.pokemonSearch$
-      .pipe(take(1))
-      .subscribe((pokemonSearch: PokemonSearch) => {
-        const newPokemonSearch = {
-          ...pokemonSearch,
-          offset: 0,
-          sortField: currentSortField,
-          sortOrder: getSortOrder(
-            pokemonSearch.sortField,
-            currentSortField,
-            pokemonSearch.sortOrder,
-          ),
-        };
-        this._pokemonSearch.next(newPokemonSearch);
-      });
-  }
-
-  updatePokemonSearch(newPokemonSearch: Partial<PokemonSearch>): void {
-    this.pokemonSearch$
-      .pipe(take(1))
-      .subscribe((pokemonSearch: PokemonSearch) => {
-        this._pokemonSearch.next({
-          ...pokemonSearch,
-          ...newPokemonSearch,
-        });
-      });
+  updatePokemonSearch(nextPokemonSearch: PokemonSearch): void {
+    this._pokemonSearch.next(nextPokemonSearch);
   }
 
   getPokemonTypes(): Observable<PokemonType[]> {
@@ -129,7 +60,7 @@ export class SearchService {
       .query<Query_Root>({
         query: GET_ALL_POKEMON,
         variables: {
-          limit: this._LIMIT,
+          limit: pokemonSearch.limit,
           where: this.getWhereBy(pokemonSearch),
           offset: pokemonSearch.offset,
           order_by: [
