@@ -2,8 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PokemonTypesToStringPipe } from 'src/app/pipes/pokemon-types-to-string.pipe';
+import { IconName } from 'src/app/types/icon-name';
 import { PokemonBase, SortablePokemonProps } from 'src/app/types/pokemon';
 import { Column } from 'src/app/types/table-column';
+import { IconComponent } from '../shared/icon/icon.component';
 import { PokemonImageComponent } from '../shared/pokemon-image/pokemon-image.component';
 
 @Component({
@@ -14,11 +16,14 @@ import { PokemonImageComponent } from '../shared/pokemon-image/pokemon-image.com
     RouterModule,
     PokemonImageComponent,
     PokemonTypesToStringPipe,
+    IconComponent,
   ],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent {
+  iconName = IconName;
+
   @Input({ required: true })
   pokemons!: PokemonBase[] | null;
 
@@ -28,8 +33,8 @@ export class TableComponent {
   >();
 
   sortableColumns: Column<SortablePokemonProps>[] = [
-    { label: '#', value: 'id', sortable: true },
-    { label: 'Pokemon', value: 'name', sortable: true },
+    { label: 'Id', value: 'id', sortable: true },
+    { label: 'Pokemon name', value: 'name', sortable: true },
     { label: 'Height', value: 'height', sortable: true },
   ];
 

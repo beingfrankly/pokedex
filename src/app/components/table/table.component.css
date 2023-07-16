@@ -1,3 +1,21 @@
 th.sortable {
   cursor: pointer;
 }
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+:where(th, td)::first-letter {
+  text-transform: capitalize;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
