@@ -1,0 +1,2127 @@
+{
+  "data": {
+    "pokemon_v2_pokemon": [
+      {
+        "name": "bulbasaur",
+        "id": 1,
+        "height": 7,
+        "base_experience": 64,
+        "pokemon_species_id": 1,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 65,
+              "name": "overgrow",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Ups GRASS moves in a pinch.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 34,
+              "name": "chlorophyll",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Raises SPEED in sunshine.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "grass",
+              "id": 12,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 1,
+            "__typename": "pokemon_v2_pokemontype"
+          },
+          {
+            "pokemon_v2_type": {
+              "name": "poison",
+              "id": 4,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 2,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 45,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 49,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 49,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 65,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 65,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 45,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "ivysaur",
+        "id": 2,
+        "height": 10,
+        "base_experience": 142,
+        "pokemon_species_id": 2,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 65,
+              "name": "overgrow",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Ups GRASS moves in a pinch.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 34,
+              "name": "chlorophyll",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Raises SPEED in sunshine.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "grass",
+              "id": 12,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 3,
+            "__typename": "pokemon_v2_pokemontype"
+          },
+          {
+            "pokemon_v2_type": {
+              "name": "poison",
+              "id": 4,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 4,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 60,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 62,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 63,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 80,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 80,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 60,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "venusaur",
+        "id": 3,
+        "height": 20,
+        "base_experience": 263,
+        "pokemon_species_id": 3,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 65,
+              "name": "overgrow",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Ups GRASS moves in a pinch.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 34,
+              "name": "chlorophyll",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Raises SPEED in sunshine.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "grass",
+              "id": 12,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 5,
+            "__typename": "pokemon_v2_pokemontype"
+          },
+          {
+            "pokemon_v2_type": {
+              "name": "poison",
+              "id": 4,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 6,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 80,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 82,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 83,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 100,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 100,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 80,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "charmander",
+        "id": 4,
+        "height": 6,
+        "base_experience": 62,
+        "pokemon_species_id": 4,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 66,
+              "name": "blaze",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Ups FIRE moves in a pinch.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 94,
+              "name": "solar-power",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Boosts Sp. Atk, but\nlowers HP in sunshine.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "fire",
+              "id": 10,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 7,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 39,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 52,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 43,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 60,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 50,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 65,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "charmeleon",
+        "id": 5,
+        "height": 11,
+        "base_experience": 142,
+        "pokemon_species_id": 5,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 66,
+              "name": "blaze",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Ups FIRE moves in a pinch.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 94,
+              "name": "solar-power",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Boosts Sp. Atk, but\nlowers HP in sunshine.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "fire",
+              "id": 10,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 8,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 58,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 64,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 58,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 80,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 65,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 80,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "charizard",
+        "id": 6,
+        "height": 17,
+        "base_experience": 267,
+        "pokemon_species_id": 6,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 66,
+              "name": "blaze",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Ups FIRE moves in a pinch.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 94,
+              "name": "solar-power",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Boosts Sp. Atk, but\nlowers HP in sunshine.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "fire",
+              "id": 10,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 9,
+            "__typename": "pokemon_v2_pokemontype"
+          },
+          {
+            "pokemon_v2_type": {
+              "name": "flying",
+              "id": 3,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 10,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 78,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 84,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 78,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 109,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 85,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 100,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "squirtle",
+        "id": 7,
+        "height": 5,
+        "base_experience": 63,
+        "pokemon_species_id": 7,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 67,
+              "name": "torrent",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Ups WATER moves in a pinch.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 44,
+              "name": "rain-dish",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Slight HP recovery in rain.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "water",
+              "id": 11,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 11,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 44,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 48,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 65,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 50,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 64,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 43,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "wartortle",
+        "id": 8,
+        "height": 10,
+        "base_experience": 142,
+        "pokemon_species_id": 8,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 67,
+              "name": "torrent",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Ups WATER moves in a pinch.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 44,
+              "name": "rain-dish",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Slight HP recovery in rain.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "water",
+              "id": 11,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 12,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 59,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 63,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 80,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 65,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 80,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 58,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "blastoise",
+        "id": 9,
+        "height": 16,
+        "base_experience": 265,
+        "pokemon_species_id": 9,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 67,
+              "name": "torrent",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Ups WATER moves in a pinch.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 44,
+              "name": "rain-dish",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Slight HP recovery in rain.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "water",
+              "id": 11,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 13,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 79,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 83,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 100,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 85,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 105,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 78,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "caterpie",
+        "id": 10,
+        "height": 3,
+        "base_experience": 39,
+        "pokemon_species_id": 10,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 19,
+              "name": "shield-dust",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Prevents added effects.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 50,
+              "name": "run-away",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Makes escaping easier.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "bug",
+              "id": 7,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 14,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 45,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 30,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 35,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 20,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 20,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 45,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "metapod",
+        "id": 11,
+        "height": 7,
+        "base_experience": 72,
+        "pokemon_species_id": 11,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 61,
+              "name": "shed-skin",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Heals the body by shedding.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "bug",
+              "id": 7,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 15,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 50,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 20,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 55,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 25,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 25,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 30,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "butterfree",
+        "id": 12,
+        "height": 11,
+        "base_experience": 198,
+        "pokemon_species_id": 12,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 14,
+              "name": "compound-eyes",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Raises accuracy.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 110,
+              "name": "tinted-lens",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Powers up “not very\neffective” moves.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "bug",
+              "id": 7,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 16,
+            "__typename": "pokemon_v2_pokemontype"
+          },
+          {
+            "pokemon_v2_type": {
+              "name": "flying",
+              "id": 3,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 17,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 60,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 45,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 50,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 90,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 80,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 70,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "weedle",
+        "id": 13,
+        "height": 3,
+        "base_experience": 39,
+        "pokemon_species_id": 13,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 19,
+              "name": "shield-dust",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Prevents added effects.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 50,
+              "name": "run-away",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Makes escaping easier.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "bug",
+              "id": 7,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 18,
+            "__typename": "pokemon_v2_pokemontype"
+          },
+          {
+            "pokemon_v2_type": {
+              "name": "poison",
+              "id": 4,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 19,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 40,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 35,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 30,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 20,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 20,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 50,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "kakuna",
+        "id": 14,
+        "height": 6,
+        "base_experience": 72,
+        "pokemon_species_id": 14,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 61,
+              "name": "shed-skin",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Heals the body by shedding.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "bug",
+              "id": 7,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 20,
+            "__typename": "pokemon_v2_pokemontype"
+          },
+          {
+            "pokemon_v2_type": {
+              "name": "poison",
+              "id": 4,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 21,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 45,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 25,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 50,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 25,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 25,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 35,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "beedrill",
+        "id": 15,
+        "height": 10,
+        "base_experience": 178,
+        "pokemon_species_id": 15,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 68,
+              "name": "swarm",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Ups BUG moves in a pinch.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 97,
+              "name": "sniper",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Powers up moves if they\nbecome critical hits.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "bug",
+              "id": 7,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 22,
+            "__typename": "pokemon_v2_pokemontype"
+          },
+          {
+            "pokemon_v2_type": {
+              "name": "poison",
+              "id": 4,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 23,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 65,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 90,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 40,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 45,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 80,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 75,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "pidgey",
+        "id": 16,
+        "height": 3,
+        "base_experience": 50,
+        "pokemon_species_id": 16,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 51,
+              "name": "keen-eye",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Prevents loss of accuracy.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 77,
+              "name": "tangled-feet",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Raises evasion if the\nPokémon is confused.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 145,
+              "name": "big-pecks",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Protects the Pokémon from\nDefense-lowering attacks.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "normal",
+              "id": 1,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 24,
+            "__typename": "pokemon_v2_pokemontype"
+          },
+          {
+            "pokemon_v2_type": {
+              "name": "flying",
+              "id": 3,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 25,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 40,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 45,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 40,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 35,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 35,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 56,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "pidgeotto",
+        "id": 17,
+        "height": 11,
+        "base_experience": 122,
+        "pokemon_species_id": 17,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 51,
+              "name": "keen-eye",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Prevents loss of accuracy.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 77,
+              "name": "tangled-feet",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Raises evasion if the\nPokémon is confused.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 145,
+              "name": "big-pecks",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Protects the Pokémon from\nDefense-lowering attacks.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "normal",
+              "id": 1,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 26,
+            "__typename": "pokemon_v2_pokemontype"
+          },
+          {
+            "pokemon_v2_type": {
+              "name": "flying",
+              "id": 3,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 27,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 63,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 60,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 55,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 50,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 50,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 71,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "pidgeot",
+        "id": 18,
+        "height": 15,
+        "base_experience": 216,
+        "pokemon_species_id": 18,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 51,
+              "name": "keen-eye",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Prevents loss of accuracy.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 77,
+              "name": "tangled-feet",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Raises evasion if the\nPokémon is confused.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 145,
+              "name": "big-pecks",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Protects the Pokémon from\nDefense-lowering attacks.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "normal",
+              "id": 1,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 28,
+            "__typename": "pokemon_v2_pokemontype"
+          },
+          {
+            "pokemon_v2_type": {
+              "name": "flying",
+              "id": 3,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 29,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 83,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 80,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 75,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 70,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 70,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 101,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "rattata",
+        "id": 19,
+        "height": 3,
+        "base_experience": 51,
+        "pokemon_species_id": 19,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 50,
+              "name": "run-away",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Makes escaping easier.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 62,
+              "name": "guts",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Ups ATTACK if suffering.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 55,
+              "name": "hustle",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Trades accuracy for power.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "normal",
+              "id": 1,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 30,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 30,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 56,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 35,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 25,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 35,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 72,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      },
+      {
+        "name": "raticate",
+        "id": 20,
+        "height": 7,
+        "base_experience": 145,
+        "pokemon_species_id": 20,
+        "pokemon_v2_pokemonabilities": [
+          {
+            "pokemon_v2_ability": {
+              "id": 50,
+              "name": "run-away",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Makes escaping easier.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 62,
+              "name": "guts",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Ups ATTACK if suffering.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          },
+          {
+            "pokemon_v2_ability": {
+              "id": 55,
+              "name": "hustle",
+              "pokemon_v2_abilityflavortexts": [
+                {
+                  "flavor_text": "Trades accuracy for power.",
+                  "__typename": "pokemon_v2_abilityflavortext"
+                }
+              ],
+              "__typename": "pokemon_v2_ability"
+            },
+            "__typename": "pokemon_v2_pokemonability"
+          }
+        ],
+        "pokemon_v2_pokemontypes": [
+          {
+            "pokemon_v2_type": {
+              "name": "normal",
+              "id": 1,
+              "__typename": "pokemon_v2_type"
+            },
+            "id": 31,
+            "__typename": "pokemon_v2_pokemontype"
+          }
+        ],
+        "pokemon_v2_pokemonstats": [
+          {
+            "pokemon_v2_stat": {
+              "name": "hp",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 55,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 81,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 60,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-attack",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 50,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "special-defense",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 70,
+            "__typename": "pokemon_v2_pokemonstat"
+          },
+          {
+            "pokemon_v2_stat": {
+              "name": "speed",
+              "__typename": "pokemon_v2_stat"
+            },
+            "base_stat": 97,
+            "__typename": "pokemon_v2_pokemonstat"
+          }
+        ],
+        "__typename": "pokemon_v2_pokemon"
+      }
+    ]
+  }
+}

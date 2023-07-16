@@ -6,13 +6,13 @@ const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./components/overview/overview.component').then(
-        (m) => m.OverviewComponent
+      import('./components/pokemon-overview/pokemon-overview.component').then(
+        (m) => m.PokemonOverviewComponent
       ),
   },
   {
     path: ':id',
-    resolve: {pokemon: pokemonResolver},
+    resolve: { pokemon: pokemonResolver },
     loadComponent: () =>
       import('./components/pokemon-detail/pokemon-detail.component').then(
         (m) => m.PokemonDetailComponent

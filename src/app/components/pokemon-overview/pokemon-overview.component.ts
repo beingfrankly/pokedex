@@ -16,13 +16,13 @@ import { PokemonSearch } from 'src/app/types/pokemon-search';
 import { getSortOrder } from 'src/app/utils/sort-order';
 
 @Component({
-  selector: 'app-overview',
+  selector: 'app-pokemon-overview',
   standalone: true,
   imports: [CommonModule, SearchComponent, TableComponent],
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.css'],
+  templateUrl: './pokemon-overview.component.html',
+  styleUrls: ['./pokemon-overview.component.css'],
 })
-export class OverviewComponent {
+export class PokemonOverviewComponent {
   private _INITIAL_LIMIT: number = 20;
   private _INITIAL_OFFSET: number = 0;
   private _INITIAL_NAME: string = '';
@@ -85,7 +85,7 @@ export class OverviewComponent {
     const currentSortOrder = this.sortOrder();
 
     this.sortOrder.set(
-      getSortOrder(currentSortField, nextSortField, currentSortOrder),
+      getSortOrder(currentSortField, nextSortField, currentSortOrder)
     );
   }
 }
