@@ -27,6 +27,9 @@ export class TableComponent {
   @Input({ required: true })
   pokemons!: PokemonBase[] | null;
 
+  @Input({ required: true })
+  tableDescription!: string;
+
   @Output()
   handleSort: EventEmitter<keyof SortablePokemonProps> = new EventEmitter<
     keyof SortablePokemonProps

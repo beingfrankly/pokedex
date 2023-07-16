@@ -1,7 +1,9 @@
 <ng-container *ngIf="pokemons">
   <table>
     <caption>
-      List of Pokemon
+      {{
+        tableDescription
+      }}
     </caption>
     <thead>
       <th></th>
@@ -19,7 +21,14 @@
     </thead>
     <tbody>
       <tr *ngFor="let pokemon of pokemons; trackBy: pokemonById">
-        <td><app-pokemon-image [pokemonId]="pokemon.id" /></td>
+        <td>
+          <app-pokemon-image
+            [pokemonId]="pokemon.id"
+            [imageDescription]="pokemon.name"
+            height="64"
+            width="64"
+          />
+        </td>
         <td class="align-right">{{ pokemon.id }}</td>
         <td>{{ pokemon.name }}</td>
         <td class="align-right">{{ pokemon.height }}</td>

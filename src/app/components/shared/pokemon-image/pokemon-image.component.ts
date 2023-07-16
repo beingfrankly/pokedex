@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, numberAttribute } from '@angular/core';
 import { toImageSource } from '../../../utils/pokemon-image-source';
 
 @Component({
@@ -10,12 +10,15 @@ import { toImageSource } from '../../../utils/pokemon-image-source';
   styleUrls: ['./pokemon-image.component.css'],
 })
 export class PokemonImageComponent {
-  @Input({ transform: toImageSource })
+  @Input({ required: true, transform: toImageSource })
   pokemonId!: number;
 
-  @Input()
-  imageHeight: string = '48px';
+  @Input({ required: true })
+  imageDescription!: string;
 
-  @Input()
-  imageWidth: string = '48px';
+  @Input({ transform: numberAttribute })
+  width: number | undefined;
+
+  @Input({ transform: numberAttribute })
+  height: number | undefined;
 }

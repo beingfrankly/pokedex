@@ -19,3 +19,8 @@ td {
 .align-right {
   text-align: right;
 }
+
+.image {
+  height: 48px;
+  width: 48px;
+}

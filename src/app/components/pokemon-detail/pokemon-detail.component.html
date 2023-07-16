@@ -4,8 +4,9 @@
   <p>#{{ pokemon.id }}</p>
   <app-pokemon-image
     [pokemonId]="pokemon.id"
-    imageHeight="256px"
-    imageWidth="256px"
+    height="256"
+    width="256"
+    [imageDescription]="pokemon.name"
   />
 
   <h2>Types</h2>
@@ -29,8 +30,9 @@
     <app-pokemon-image
       [routerLink]="['/', evolution.id]"
       [pokemonId]="evolution.id"
-      imageHeight="128px"
-      imageWidth="128px"
+      height="128"
+      width="128"
+      [imageDescription]="evolution.name"
     />
   </div>
 </ng-container>

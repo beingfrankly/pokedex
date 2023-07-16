@@ -7,7 +7,11 @@
 </section>
 
 <main>
-  <app-table [pokemons]="pokemons$ | async" (handleSort)="setSorting($event)" />
+  <app-table
+    [pokemons]="pokemons$ | async"
+    (handleSort)="setSorting($event)"
+    tableDescription="List of Pokemon"
+  />
   <nav>
     <app-button (click)="setPreviousOffset()" label="Previous Pokemon">
       <app-icon [name]="iconName.CHEVRON_LEFT"></app-icon>
