@@ -1,5 +1,8 @@
 <ng-container *ngIf="pokemons">
   <table>
+    <caption>
+      List of Pokemon
+    </caption>
     <thead>
       <th></th>
       <th
@@ -42,8 +45,38 @@
       </tr>
     </tbody>
   </table>
-  <button (click)="onHandlePrevious()">Previous</button>
-  <button (click)="onHandleNext()">Next</button>
+  <button (click)="onHandlePrevious()">
+    <span>Previous </span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M15.75 19.5L8.25 12l7.5-7.5"
+      />
+    </svg>
+  </button>
+  <button (click)="onHandleNext()">
+    <span>Next</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+      />
+    </svg>
+  </button>
 </ng-container>
 
 <ng-template #ascending>
@@ -78,5 +111,4 @@
   </svg>
 </ng-template>
 
-<ng-template #noPokemons>
-</ng-template>
+<ng-template #noPokemons> </ng-template>

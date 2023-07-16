@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { toImageSource } from '../../utils/pokemon-image-source';
+import { toImageSource } from '../../../utils/pokemon-image-source';
 
 @Component({
   selector: 'app-pokemon-image',

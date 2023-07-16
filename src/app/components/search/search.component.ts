@@ -17,7 +17,7 @@ export class SearchComponent {
   });
 
   @Input()
-  pokemonTypes!: PokemonType[];
+  pokemonTypes!: PokemonType[] | null;
 
   @Output()
   typeChange: EventEmitter<number> = new EventEmitter<number>();

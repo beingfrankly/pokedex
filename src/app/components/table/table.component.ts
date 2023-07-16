@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PokemonImageComponent } from '../pokemon-image/pokemon-image.component';
-import { Column } from 'src/app/types/table-column';
-import { PokemonBase, SortablePokemonProps } from 'src/app/types/pokemon';
 import { PokemonTypesToStringPipe } from 'src/app/pipes/pokemon-types-to-string.pipe';
+import { PokemonBase, SortablePokemonProps } from 'src/app/types/pokemon';
+import { Column } from 'src/app/types/table-column';
+import { PokemonImageComponent } from '../shared/pokemon-image/pokemon-image.component';
 
 @Component({
   selector: 'app-table',

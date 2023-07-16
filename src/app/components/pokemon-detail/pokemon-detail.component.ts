@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { PokemonImageComponent } from '../pokemon-image/pokemon-image.component';
+import { PokemonImageComponent } from '../shared/pokemon-image/pokemon-image.component';
 import { Pokemon } from '../../types/pokemon';
-import { PokemonTypeIconComponent } from '../pokemon-type-icon/pokemon-type-icon.component';
+import { PokemonTypeIconComponent } from '../shared/pokemon-type-icon/pokemon-type-icon.component';
 
 @Component({
   selector: 'app-pokemon-detail',
