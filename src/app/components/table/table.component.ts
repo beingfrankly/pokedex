@@ -23,12 +23,6 @@ export class TableComponent {
   pokemons!: PokemonBase[] | null;
 
   @Output()
-  handlePrevious: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  @Output()
-  handleNext: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  @Output()
   handleSort: EventEmitter<keyof SortablePokemonProps> = new EventEmitter<
     keyof SortablePokemonProps
   >();
@@ -48,14 +42,6 @@ export class TableComponent {
 
   pokemonById(_index: number, pokemon: PokemonBase) {
     return pokemon.id;
-  }
-
-  onHandlePrevious(): void {
-    this.handlePrevious.emit(true);
-  }
-
-  onHandleNext(): void {
-    this.handleNext.emit(true);
   }
 
   onHandleSort(nextSortField: keyof SortablePokemonProps): void {
