@@ -1,12 +1,22 @@
-<app-search
-  [pokemonTypes]="pokemonTypes$ | async"
-  (typeChange)="setType($event)"
-  (nameChange)="setName($event)"
-/>
+<section role="search">
+  <app-search
+    [pokemonTypes]="pokemonTypes$ | async"
+    (typeChange)="setType($event)"
+    (nameChange)="setName($event)"
+  />
+</section>
 
-<app-table
-  [pokemons]="pokemons$ | async"
-  (handleSort)="setSorting($event)"
-  (handlePrevious)="setPreviousOffset()"
-  (handleNext)="setNextOffset()"
-/>
+<main>
+  <app-table [pokemons]="pokemons$ | async" (handleSort)="setSorting($event)" />
+  <nav>
+    <app-button (click)="setPreviousOffset()" label="Previous Pokemon">
+      <app-icon [name]="iconName.CHEVRON_LEFT"></app-icon>
+      <span>Previous Pokemon</span>
+    </app-button>
+
+    <app-button (click)="setNextOffset()" label="Next Pokemon">
+      <span>Next Pokemon</span>
+      <app-icon [name]="iconName.CHEVRON_RIGHT"></app-icon>
+    </app-button>
+  </nav>
+</main>

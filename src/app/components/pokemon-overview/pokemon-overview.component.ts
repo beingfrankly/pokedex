@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
   computed,
@@ -6,37 +7,45 @@ import {
   signal,
   WritableSignal,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SearchComponent } from '../search/search.component';
-import { TableComponent } from '../table/table.component';
-import { SearchService } from '../../search.service';
-import { SortOrder } from 'src/app/types/sort-order';
+import { IconName } from 'src/app/types/icon-name';
 import { SortablePokemonProps } from 'src/app/types/pokemon';
 import { PokemonSearch } from 'src/app/types/pokemon-search';
+import { SortOrder } from 'src/app/types/sort-order';
 import { getSortOrder } from 'src/app/utils/sort-order';
+import { SearchService } from '../../search.service';
+import { SearchComponent } from '../search/search.component';
+import { ButtonComponent } from '../shared/button/button.component';
+import { IconComponent } from '../shared/icon/icon.component';
+import { TableComponent } from '../table/table.component';
 
 @Component({
   selector: 'app-pokemon-overview',
   standalone: true,
-  imports: [CommonModule, SearchComponent, TableComponent],
+  imports: [
+    CommonModule,
+    SearchComponent,
+    TableComponent,
+    IconComponent,
+    ButtonComponent,
+  ],
   templateUrl: './pokemon-overview.component.html',
   styleUrls: ['./pokemon-overview.component.css'],
 })
 export class PokemonOverviewComponent {
-  private _INITIAL_LIMIT: number = 20;
+  private _RESULT_SIZE: number = 10;
   private _INITIAL_OFFSET: number = 0;
   private _INITIAL_NAME: string = '';
-  private _OFFSET_STEP: number = 20;
 
   pokemonTypes$ = this.searchService.getPokemonTypes();
   pokemons$ = this.searchService.pokemons$;
+  iconName = IconName;
 
   sortOrder: WritableSignal<SortOrder> = signal(SortOrder.ASC);
   sortField: WritableSignal<keyof SortablePokemonProps> = signal('id');
   offset: WritableSignal<number> = signal(this._INITIAL_OFFSET);
   name: WritableSignal<string> = signal(this._INITIAL_NAME);
   typeId: WritableSignal<number | undefined> = signal(undefined);
-  limit: WritableSignal<number> = signal(this._INITIAL_LIMIT);
+  limit: WritableSignal<number> = signal(this._RESULT_SIZE);
 
   pokemonSearch: Signal<PokemonSearch | undefined> = computed(() => ({
     sortOrder: this.sortOrder(),
@@ -67,13 +76,13 @@ export class PokemonOverviewComponent {
 
   setNextOffset(): void {
     const currentValue = this.offset();
-    this.offset.set(currentValue + this._OFFSET_STEP);
+    this.offset.set(currentValue + this._RESULT_SIZE);
   }
 
   setPreviousOffset(): void {
     const currentValue = this.offset();
-    if (currentValue >= this._OFFSET_STEP) {
-      this.offset.set(currentValue - this._OFFSET_STEP);
+    if (currentValue >= this._RESULT_SIZE) {
+      this.offset.set(currentValue - this._RESULT_SIZE);
     }
   }
 
