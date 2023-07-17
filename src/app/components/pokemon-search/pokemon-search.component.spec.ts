@@ -1,9 +1,9 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
-import { SearchComponent } from './search.component';
+import { PokemonSearchComponent } from './pokemon-search.component';
 
 describe('SearchComponent', () => {
-  let spectator: Spectator<SearchComponent>;
-  const createComponent = createComponentFactory(SearchComponent);
+  let spectator: Spectator<PokemonSearchComponent>;
+  const createComponent = createComponentFactory(PokemonSearchComponent);
 
   beforeEach(() => {});
 

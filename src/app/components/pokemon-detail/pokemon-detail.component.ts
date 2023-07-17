@@ -6,7 +6,7 @@ import { Pokemon } from '../../types/pokemon';
 import { PokemonTypeIconComponent } from '../shared/pokemon-type-icon/pokemon-type-icon.component';
 import { IconName } from 'src/app/types/icon-name';
 import { IconComponent } from '../shared/icon/icon.component';
-import { TableComponent } from '../table/table.component';
+import { TableComponent } from '../shared/table/table.component';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -17,7 +17,7 @@ import { TableComponent } from '../table/table.component';
     PokemonImageComponent,
     PokemonTypeIconComponent,
     IconComponent,
-    TableComponent
+    TableComponent,
   ],
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.css'],

@@ -6,13 +6,13 @@ import { SortOrder } from 'src/app/types/sort-order';
 import { SortablePokemonProps } from 'src/app/types/pokemon';
 
 @Component({
-  selector: 'app-search',
+  selector: 'app-pokemon-search',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
+  templateUrl: './pokemon-search.component.html',
+  styleUrls: ['./pokemon-search.component.css'],
 })
-export class SearchComponent {
+export class PokemonSearchComponent {
   sortOrder = SortOrder;
 
   searchForm = new FormGroup({

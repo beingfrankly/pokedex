@@ -13,10 +13,10 @@ import { PokemonSearch } from 'src/app/types/pokemon-search';
 import { SortOrder } from 'src/app/types/sort-order';
 import { getSortOrder } from 'src/app/utils/sort-order';
 import { SearchService } from '../../search.service';
-import { SearchComponent } from '../search/search.component';
+import { PokemonSearchComponent } from '../pokemon-search/pokemon-search.component';
 import { ButtonComponent } from '../shared/button/button.component';
 import { IconComponent } from '../shared/icon/icon.component';
-import { TableComponent } from '../table/table.component';
+import { TableComponent } from '../shared/table/table.component';
 import { PokemonImageComponent } from '../shared/pokemon-image/pokemon-image.component';
 import { PokemonTypesToStringPipe } from 'src/app/pipes/pokemon-types-to-string.pipe';
 import { RouterModule } from '@angular/router';
@@ -26,13 +26,13 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [
     CommonModule,
-    SearchComponent,
+    PokemonSearchComponent,
     TableComponent,
     IconComponent,
     ButtonComponent,
     PokemonImageComponent,
     PokemonTypesToStringPipe,
-    RouterModule
+    RouterModule,
   ],
   templateUrl: './pokemon-overview.component.html',
   styleUrls: ['./pokemon-overview.component.css'],
@@ -110,7 +110,7 @@ export class PokemonOverviewComponent {
     this.sortField.set(nextSortField as keyof SortablePokemonProps);
 
     this.sortOrder.set(
-      getSortOrder(currentSortField, nextSortField, currentSortOrder),
+      getSortOrder(currentSortField, nextSortField, currentSortOrder)
     );
   }
 }
