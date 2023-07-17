@@ -17,6 +17,9 @@ import { SearchComponent } from '../search/search.component';
 import { ButtonComponent } from '../shared/button/button.component';
 import { IconComponent } from '../shared/icon/icon.component';
 import { TableComponent } from '../table/table.component';
+import { PokemonImageComponent } from '../shared/pokemon-image/pokemon-image.component';
+import { PokemonTypesToStringPipe } from 'src/app/pipes/pokemon-types-to-string.pipe';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-overview',
@@ -27,6 +30,9 @@ import { TableComponent } from '../table/table.component';
     TableComponent,
     IconComponent,
     ButtonComponent,
+    PokemonImageComponent,
+    PokemonTypesToStringPipe,
+    RouterModule
   ],
   templateUrl: './pokemon-overview.component.html',
   styleUrls: ['./pokemon-overview.component.css'],
@@ -35,6 +41,12 @@ export class PokemonOverviewComponent {
   private _RESULT_SIZE: number = 10;
   private _INITIAL_OFFSET: number = 0;
   private _INITIAL_NAME: string = '';
+
+  sortablePokemonFields: (keyof SortablePokemonProps)[] = [
+    'id',
+    'name',
+    'height',
+  ];
 
   pokemonTypes$ = this.searchService.getPokemonTypes();
   pokemons$ = this.searchService.pokemons$;
@@ -86,15 +98,19 @@ export class PokemonOverviewComponent {
     }
   }
 
-  setSorting(nextSortField: any): void {
-    this.offset.set(this._INITIAL_OFFSET);
-    this.sortField.set(nextSortField as keyof SortablePokemonProps);
+  setSortOrder(sortOrder: SortOrder): void {
+    this.sortOrder.set(sortOrder);
+  }
 
+  setSorting(nextSortField: any): void {
     const currentSortField = this.sortField();
     const currentSortOrder = this.sortOrder();
 
+    this.offset.set(this._INITIAL_OFFSET);
+    this.sortField.set(nextSortField as keyof SortablePokemonProps);
+
     this.sortOrder.set(
-      getSortOrder(currentSortField, nextSortField, currentSortOrder)
+      getSortOrder(currentSortField, nextSortField, currentSortOrder),
     );
   }
 }

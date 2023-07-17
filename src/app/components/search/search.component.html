@@ -9,4 +9,25 @@
       {{ pokemonType.name }}
     </option>
   </select>
+
+  <label for="input_order_by">Order by</label>
+  <select
+    id="input_order_by"
+    formControlName="sortField"
+    (change)="onSortFieldChange()"
+  >
+    <option *ngFor="let sortField of sortFields" [ngValue]="sortField">
+      {{ sortField }}
+    </option>
+  </select>
+
+  <label for="input_sort_order">Sort by</label>
+  <select
+    id="input_sort_order"
+    formControlName="sortOrder"
+    (change)="onSortOrderChange()"
+  >
+    <option selected [ngValue]="sortOrder.ASC">Ascending</option>
+    <option [ngValue]="sortOrder.DESC">Descending</option>
+  </select>
 </form>
