@@ -1,8 +1,7 @@
-import { PokemonAbility } from "./pokemon-ability";
-import { PokemonEvolution } from "./pokemon-evolution";
-import { PokemonStat } from "./pokemon-stat";
-import { PokemonType } from "./pokemon-type";
-
+import { PokemonAbility } from './pokemon-ability';
+import { PokemonEvolution } from './pokemon-evolution';
+import { PokemonStat } from './pokemon-stat';
+import { PokemonType } from './pokemon-type';
 
 export type PokemonBase = {
   id: number;
@@ -11,11 +10,11 @@ export type PokemonBase = {
   baseExperience: number;
   stats: PokemonStat[];
   types: PokemonType[];
-}
+};
 
 export type Pokemon = PokemonBase & {
   evolutions: PokemonEvolution[] | undefined;
   abilities: PokemonAbility[];
-}
+};
 
-export type SortablePokemonProps = Pick<PokemonBase, "id" | "name" | "height">;
+export type SortablePokemonProps = Pick<PokemonBase, 'id' | 'name' | 'height'>;
