@@ -1,0 +1,40 @@
+<nav>
+  <a [routerLink]="['/']"><app-icon [name]="iconName.CHEVRON_LEFT" />Back</a>
+</nav>
+
+<ng-container *ngIf="pokemon" class="container">
+  <h1 class="name">{{ pokemon.name }}</h1>
+  <app-pokemon-image
+    [pokemonId]="pokemon.id"
+    height="256"
+    width="256"
+    [imageDescription]="pokemon.name"
+  />
+
+  <h2>Types</h2>
+  <div *ngFor="let type of pokemon.types">
+    <app-pokemon-type-icon [pokemonType]="type.name" />
+  </div>
+
+  <h2>Stats</h2>
+  <app-table [data]="pokemon.stats" description="List of stats">
+      <ng-template #headers>
+        <th>stat</th>
+        <th>value</th>
+      </ng-template>
+      <ng-template #rows let-row>
+        <td>{{ row.name }}</td>
+        <td class="align-right">{{ row.value }}</td>
+      </ng-template>
+  </app-table>
+
+  <h2>Abilities</h2>
+  <app-table [data]="pokemon.abilities" description="List of abilities">
+      <ng-template #headers>
+        <th>name</th>
+      </ng-template>
+      <ng-template #rows let-row>
+        <td>{{ row }}</td>
+      </ng-template>
+  </app-table>
+</ng-container>
