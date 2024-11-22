@@ -1,11 +1,11 @@
 import { PokemonAbility } from './pokemon-ability';
-import { PokemonEvolution } from './pokemon-evolution';
 import { PokemonStat } from './pokemon-stat';
 import { PokemonType } from './pokemon-type';
 
 export type PokemonBase = {
   name: string;
   id: number;
+  is_favorite: boolean;
 };
 
 export type PokemonList = {
