@@ -28,9 +28,13 @@
 
 <!-- If no template is provided, use the keys as headers and display all values -->
 <ng-template #defaultHeaderTemplate let-data>
-  <th *ngFor="let header of data[0] | keyvalue">{{ header.key }}</th>
+  <th *ngFor="let header of data[0] | keyvalue; trackBy: trackByFn">
+    {{ header.key }}
+  </th>
 </ng-template>
 
 <ng-template #defaultRowTemplate let-row>
-  <td *ngFor="let row of row | keyvalue">{{ row.value }}</td>
+  <td *ngFor="let row of row | keyvalue; trackBy: trackByFn">
+    {{ row.value }}
+  </td>
 </ng-template>

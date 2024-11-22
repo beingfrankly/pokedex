@@ -1,10 +1,14 @@
-/* :host { */
-/*   height: 100%; */
-/*   display: grid; */
-/*   place-content: center; */
-/* } */
-/**/
-/* nav { */
-/*   display: flex; */
-/*   justify-content: space-between; */
-/* } */
+.favorite-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

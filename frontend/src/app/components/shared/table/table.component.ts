@@ -1,5 +1,6 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, KeyValue } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   Component,
   ContentChild,
   Input,
@@ -14,6 +15,7 @@ import {
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
   encapsulation: ViewEncapsulation.ShadowDom,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableComponent {
   @Input({ required: true })
@@ -27,4 +29,8 @@ export class TableComponent {
 
   @ContentChild('rows')
   rows: TemplateRef<any> | undefined;
+
+  trackByFn(index: number, item: any): any {
+    return item.id || index; // Assuming each row has an id, fallback to index if not
+  }
 }

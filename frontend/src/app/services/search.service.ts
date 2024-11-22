@@ -2,15 +2,15 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs';
 import { shareReplay, switchMap } from 'rxjs/operators';
-import { Pokemon, PokemonList } from './types/pokemon';
-import { PokemonSearch } from './types/pokemon-search';
-import { buildParams } from './utils/http-params';
+import { Pokemon, PokemonList } from '../types/pokemon';
+import { PokemonSearch } from '../types/pokemon-search';
+import { buildParams } from '../utils/http-params';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SearchService {
-  BASE_URL = 'http://localhost:8000/pokemon';
+  private BASE_URL = 'http://localhost:8000/pokemon';
 
   private _pokemonSearch: ReplaySubject<PokemonSearch> =
     new ReplaySubject<PokemonSearch>(1);
