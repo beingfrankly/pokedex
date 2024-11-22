@@ -1,9 +1,3 @@
-<section role="search">
-  <app-pokemon-search
-    (nameChange)="setName($event)"
-  />
-</section>
-
 <main>
   <ng-container *ngIf="pokemons$ | async as pokemons">
     <app-table [data]="pokemons" description="List of Pokemon">

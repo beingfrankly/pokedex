@@ -7,27 +7,22 @@ import {
   signal,
   WritableSignal,
 } from '@angular/core';
-import { IconName } from 'src/app/types/icon-name';
-import { SortablePokemonProps } from 'src/app/types/pokemon';
-import { PokemonSearch } from 'src/app/types/pokemon-search';
-import { SortOrder } from 'src/app/types/sort-order';
-import { getSortOrder } from 'src/app/utils/sort-order';
-import { SearchService } from '../../search.service';
-import { PokemonSearchComponent } from '../pokemon-search/pokemon-search.component';
-import { ButtonComponent } from '../shared/button/button.component';
-import { IconComponent } from '../shared/icon/icon.component';
-import { TableComponent } from '../shared/table/table.component';
-import { PokemonImageComponent } from '../shared/pokemon-image/pokemon-image.component';
-import { PokemonTypesToStringPipe } from 'src/app/pipes/pokemon-types-to-string.pipe';
 import { RouterModule } from '@angular/router';
 import { map } from 'rxjs';
+import { PokemonTypesToStringPipe } from 'src/app/pipes/pokemon-types-to-string.pipe';
+import { IconName } from 'src/app/types/icon-name';
+import { PokemonSearch } from 'src/app/types/pokemon-search';
+import { SearchService } from '../../search.service';
+import { ButtonComponent } from '../shared/button/button.component';
+import { IconComponent } from '../shared/icon/icon.component';
+import { PokemonImageComponent } from '../shared/pokemon-image/pokemon-image.component';
+import { TableComponent } from '../shared/table/table.component';
 
 @Component({
   selector: 'app-pokemon-overview',
   standalone: true,
   imports: [
     CommonModule,
-    PokemonSearchComponent,
     TableComponent,
     IconComponent,
     ButtonComponent,
@@ -41,25 +36,16 @@ import { map } from 'rxjs';
 export class PokemonOverviewComponent {
   private _RESULT_SIZE: number = 10;
   private _INITIAL_OFFSET: number = 0;
-  private _INITIAL_NAME: string = '';
 
-  sortablePokemonFields: (keyof SortablePokemonProps)[] = [
-    'name',
-    'id',
-  ];
-
-  // pokemonTypes$ = this.searchService.getPokemonTypes();
   pokemonList$ = this.searchService.pokemonList$;
-  pokemons$ = this.pokemonList$.pipe(map((pokemonList => pokemonList.pokemon)));
+  pokemons$ = this.pokemonList$.pipe(map((pokemonList) => pokemonList.pokemon));
   iconName = IconName;
 
   offset: WritableSignal<number> = signal(this._INITIAL_OFFSET);
-  name: WritableSignal<string> = signal(this._INITIAL_NAME);
   limit: WritableSignal<number> = signal(this._RESULT_SIZE);
 
   pokemonSearch: Signal<PokemonSearch | undefined> = computed(() => ({
     offset: this.offset(),
-    name: this.name(),
     limit: this.limit(),
   }));
 
@@ -71,10 +57,6 @@ export class PokemonOverviewComponent {
         this.searchService.updatePokemonSearch(nextPokemonSearch);
       }
     });
-  }
-
-  setName(pokemonName: string): void {
-    this.name.set(pokemonName);
   }
 
   setNextOffset(): void {
