@@ -1,4 +1,3 @@
-
 import httpx
 
 from contextlib import asynccontextmanager
@@ -6,6 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.api.main import api_router
 from backend.app.core.db import create_tables
+
 base_url = "https://pokeapi.co/api/v2/pokemon/"
 
 origins = ["http://localhost:4200"]

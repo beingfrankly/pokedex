@@ -14,9 +14,9 @@ router = APIRouter()
 @router.get("/", response_model=PokemonList)
 async def get_pokemon(
     request: Request,
-    db: Session = Depends(get_db),
     limit: Annotated[int, Query(ge=1, le=100)] = 10,
     offset: Annotated[int, Query(ge=0)] = 0,
+    db: Session = Depends(get_db),
 ) -> PokemonList:
     # Get Pokemon from API
     response = await request.state.client.get(
