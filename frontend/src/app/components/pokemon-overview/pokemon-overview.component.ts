@@ -9,7 +9,8 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { map, take } from 'rxjs';
+import { map, take, catchError } from 'rxjs';
+import { EMPTY } from 'rxjs';
 import { PokemonTypesToStringPipe } from 'src/app/pipes/pokemon-types-to-string.pipe';
 import { FavoritesService } from 'src/app/services/favorites.service';
 import { IconName } from 'src/app/types/icon-name';
@@ -19,6 +20,7 @@ import { ButtonComponent } from '../shared/button/button.component';
 import { IconComponent } from '../shared/icon/icon.component';
 import { PokemonImageComponent } from '../shared/pokemon-image/pokemon-image.component';
 import { TableComponent } from '../shared/table/table.component';
+import { PokemonBase } from 'src/app/types/pokemon';
 
 @Component({
   selector: 'app-pokemon-overview',
@@ -41,7 +43,8 @@ export class PokemonOverviewComponent {
   private _INITIAL_OFFSET: number = 0;
 
   pokemonList$ = this.searchService.pokemonList$;
-  pokemons$ = this.pokemonList$.pipe(map((pokemonList) => pokemonList.pokemon));
+  private pokemonListSignal = signal<PokemonBase[]>([]);
+  pokemons = computed(() => this.pokemonListSignal());
   iconName = IconName;
 
   offset: WritableSignal<number> = signal(this._INITIAL_OFFSET);
@@ -63,24 +66,38 @@ export class PokemonOverviewComponent {
         this.searchService.updatePokemonSearch(nextPokemonSearch);
       }
     });
+
+    this.pokemonList$
+      .pipe(map((pokemonList) => pokemonList.pokemon))
+      .subscribe((pokemons) => {
+        this.pokemonListSignal.set(pokemons);
+      });
   }
 
   toggleFavorite(pokemonId: number, isFavorite: boolean): void {
-    // Optimistically update the UI
-    this.pokemons$ = this.pokemons$.pipe(
-      map((pokemons) =>
-        pokemons.map((pokemon) =>
-          pokemon.id === pokemonId
-            ? { ...pokemon, is_favorite: !isFavorite }
-            : pokemon
-        )
+    this.pokemonListSignal.update((pokemons) =>
+      pokemons.map((pokemon) =>
+        pokemon.id === pokemonId
+          ? { ...pokemon, is_favorite: !isFavorite }
+          : pokemon
       )
     );
 
-    // Toggle the favorite through the API
     this.favoritesService
       .toggleFavorite(pokemonId, isFavorite)
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        catchError(() => {
+          this.pokemonListSignal.update((pokemons) =>
+            pokemons.map((pokemon) =>
+              pokemon.id === pokemonId
+                ? { ...pokemon, is_favorite: isFavorite }
+                : pokemon
+            )
+          );
+          return EMPTY;
+        })
+      )
       .subscribe();
   }
 

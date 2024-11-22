@@ -1,46 +1,44 @@
 <main>
-  <ng-container *ngIf="pokemons$ | async as pokemons">
-    <app-table [data]="pokemons" description="List of Pokemon">
-      <ng-template #headers>
-        <th></th>
-        <th>name</th>
-        <th>favorite</th>
-        <th></th>
-      </ng-template>
-      <ng-template #rows let-row>
-        <td>
-          <app-pokemon-image
-            [pokemonId]="row.id"
-            [imageDescription]="row.name"
-            height="64"
-            width="64"
-          />
-        </td>
-        <td>{{ row.name }}</td>
-        <td>
-          <button
-            (click)="toggleFavorite(row.id, row.is_favorite)"
-            class="favorite-button"
-            [attr.aria-label]="
-              row.is_favorite ? 'Remove from favorites' : 'Add to favorites'
+  <app-table [data]="pokemons()" description="List of Pokemon">
+    <ng-template #headers>
+      <th></th>
+      <th>name</th>
+      <th>favorite</th>
+      <th></th>
+    </ng-template>
+    <ng-template #rows let-row>
+      <td>
+        <app-pokemon-image
+          [pokemonId]="row.id"
+          [imageDescription]="row.name"
+          height="64"
+          width="64"
+        />
+      </td>
+      <td>{{ row.name }}</td>
+      <td>
+        <button
+          (click)="toggleFavorite(row.id, row.is_favorite)"
+          class="favorite-button"
+          [attr.aria-label]="
+            row.is_favorite ? 'Remove from favorites' : 'Add to favorites'
+          "
+        >
+          <app-icon
+            [name]="
+              row.is_favorite ? iconName.HEART_FILLED : iconName.HEART_OUTLINE
             "
-          >
-            <app-icon
-              [name]="
-                row.is_favorite ? iconName.HEART_FILLED : iconName.HEART_OUTLINE
-              "
-              class="heart-icon"
-            ></app-icon>
-          </button>
-        </td>
-        <td>
-          <a [routerLink]="['/', row.id]" [attr.aria-label]="row.name">
-            <app-icon [name]="iconName.CHEVRON_RIGHT"></app-icon>
-          </a>
-        </td>
-      </ng-template>
-    </app-table>
-  </ng-container>
+            class="heart-icon"
+          ></app-icon>
+        </button>
+      </td>
+      <td>
+        <a [routerLink]="['/', row.id]" [attr.aria-label]="row.name">
+          <app-icon [name]="iconName.CHEVRON_RIGHT"></app-icon>
+        </a>
+      </td>
+    </ng-template>
+  </app-table>
 
   <nav>
     <app-button (click)="setPreviousOffset()" label="Previous Pokemon">
